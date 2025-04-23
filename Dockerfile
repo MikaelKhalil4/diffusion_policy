@@ -27,7 +27,7 @@ RUN apt-get install -y ffmpeg libsm6 libxext6 libgl1
 
 RUN apt update && apt install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get update
+RUN apt-get update && apt-get install -y curl bzip2
 
 
 ENV CONDA_DIR=/opt/conda
@@ -38,8 +38,6 @@ RUN curl -O https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-
 ENV PATH=$CONDA_DIR/bin:$PATH
 # Verify conda installation
 RUN conda --version
-
-
 
 
 # Declare build-time variable with a default value of 1000.
